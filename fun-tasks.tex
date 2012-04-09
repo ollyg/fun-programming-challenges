@@ -1,0 +1,665 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\maketitle
+
+\section{Foreword}
+
+\paragraph{} This book aims to provide a set of problems, suitable for assisting learning any language that has a graphical library available to it. It's deliberately not language specific however your language should be able to cope with objects.
+
+\paragraph{} The tasks start off at a reasonable level and are intended to have increasing difficulty. If learning programming for the first time you'll need a mentor to help guide you through background subjects that tasks cover, for instance when to use arrays to solve a problem. It might be possible to use the tasks as part of a taught course.
+
+\paragraph{} I originally wrote this to help myself learn Ada, with which I used GTK for the graphical interface tasks. Any feedback on perceived missing steps or task difficulty jumps is welcome at guyjohnedwards@gmail.com
+
+
+
+\tableofcontents
+
+
+
+
+\chapter{UAV Photography Missions}
+
+\paragraph{} For this set of task you are placed in the role of a programmer looking for new challenges. You have taken a position with a wildlife orientated government organisation assisting with trials of a new camera carrying Unmanned Aerial Vehicle in a remote wildlife area.
+
+\clearpage
+
+
+
+\section{Our First Project - Simple 2D Navigation}
+
+\subsection{Problem Definition}
+
+\paragraph{} You are tasked with writing a simple software test to simulate guiding a UAV to a given map location in order for the UAV to take a photograph of the landscape there. 
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Write code to create a 100x100 grid two dimensional grid.
+\item When the program starts, place a target location at random on the grid (at a integer point, e.g. 84x34 not 84.321x34.123)
+\item Also place a UAV starting position at random on the grid (at a integer point)
+\item When the program starts, print both the UAV position and the destination position
+\item With each iteration of the program, make the UAV move one X or Y coordinate closer to the destination
+\item Print the UAV position at each step
+\item Introduce a configurable delay in the code between each iteration so that a user can read the printed output before the next line appears
+\item Make the program stop when the UAV reaches the destination
+\item Ensure your code is commented so other staff can understand what your code is for
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} In this exercise we're writing a basic program and executing it, in doing so checking that we're happy with the basic syntax of our programming language and getting our program to compile.
+
+\paragraph{} It's a gentle introduction and so the maths to accomplish the task is deliberately kept simple. The printing behaviour is a basic example of output to assist in debugging the programs behaviour - is it homing in on the destination or accidentally running away from it? The output will help diagnose such mistakes.
+
+\subsection{Bonus Tasks}
+
+\paragraph{} The UAV has been sent to photograph a wild animal. The animal has been electronically tagged so the UAV knows the animals position at all times. The wild animal moves about as it looks for food but also hates the sound of the UAV and tries to run from it when it hears it.
+
+\begin{itemize}
+\item Make the destination point move one square with every other iteration (hence it moves at half the speed of the UAV).
+\item Make the wild animal stay within the grid boundaries. For instance it shouldn't end up at point 101,101 on a 100x100 grid.
+\item Make the wild animal move away from the UAV. Decide how the animal will move (or not) if cornered and each potential direction takes it closer to the UAV.
+\end{itemize}
+
+\clearpage
+
+
+
+
+\section{Project - Visualisation}
+
+\subsection{Problem Definition}
+
+\paragraph{} Your divisional manager who is funding your UAV project doesn't understand programming or the text output from the first project and wants to see visually what is going on in the simulation so that the manager knows the project money funding your position is producing results.
+
+\paragraph{} You are going to write a Graphical User Interface (GUI) so that the manager can watch the UAV movement on a desktop machine.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Write a graphical interface that displays the 100x100 map grid.
+\item Show a dot on the grid for the position of the UAV.
+\item Show a dot on the grid for the position of the destination.
+\item Create a 'Start' button that, when clicked, starts the simulation running.
+\item When the simulation finishes, the application should stay open and show the last positions.
+\item When the simulation ends, clicking the start button should start another simulated run.
+\item Don't make behavioural changes to the underlying simulation in this project.
+\item Keep it as one program, avoid writing a separate GUI program that runs from the information in the text output of the first.
+\end{enumerate}
+
+\subsection{Why are we doing this?}
+
+\paragraph{} This is our first application using a graphical toolkit. The aim is gentle familiarisation with the chosen graphical toolkit, which should be tricky enough at first. The following tasks are move adventurous so don't leap ahead.
+
+\paragraph{} There are deliberately no behaviour changes introduced to our previous code, we're visualising what is already happening.
+
+\subsection{Bonus tasks}
+
+\paragraph{} When watching a simulation, your important divisional manager likes to interrupt and ask what exactly is going on.
+
+\begin{itemize}
+\item Add a 'Pause' button so you can pause the simulation while you explain what's occurring on screen.
+\item On pausing make the button text change to 'Resume' so it's clear that the simulation is paused.
+\item When a simulation is actively running, disable the start button to avoid a user getting confused.
+\item Add a sub window in the program which shows the text output from the program as it is produced to help you explain to a spectator what the program has decided and why.
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Enterprise Funding}
+
+\subsection{Problem Definition}
+
+\paragraph{} Your manager comes running in to your office to explain that they've won more funding for the project. As part of the new funding some of the contributors may ask for a demonstration, and so you want to make basic changes to improve the application before the contributors arrive.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Setup or upload your code to a version control system.
+\item What static code analysis tools exist for your language (if any)? When you run them on your code what is the output? If errors are reported, fix them where appropriate.
+\item What coding practises exist for your language (if any). Have you met these standards? If not, alter the code so that it does.
+\item Expand the projects output scale
+    \begin{enumerate}
+        \item Add a Z coordinate to the map grid
+        \item ensure the placement functions also randomise the Z placement
+        \item ensure the UAV tracks the destination in vertical Z space
+        \item alter the program to consider the destination photographed when the UAV is within a given configurable grid range
+        \item expand the simulation grid to 1000 (x) x 1000 (y) x 100 (z) vertical
+    \end{enumerate}
+\item Add an option to your program so that when it is run in a testing scenario, the delay between iterations is removed
+\item Write a basic script (in any language) to run through the text output produced by a test run of your code and check for invalid coordinates outside of the given simulation area.
+\end{enumerate}
+
+\subsection{Why are we doing this?}
+
+\paragraph{} The problems from this point onwards will get more involved and the codebase will grow. These changes will make managing any codebase easier and assist in teaching programmers to find out what is accepted good coding practise for any given language.
+
+\subsection{Bonus tasks}
+
+\paragraph{} You still have a day or two spare before the demonstration.
+
+\begin{itemize}
+\item To aid testing, are you able to get your program to run a set number of times (such as 1000) and output the results to a file for the test script to then analyse?
+\item Are there any other sanity checks you can add to your testing script?
+\item Does your program include a 'LICENSE' file? If not, what license would you add? Is this complicated by whose computing facilities and time you are writing the code in?
+\item Is the spelling in your code comments correct? Can you automate the spelling check?
+\item What command line options does your program support? Is there any minimum suggested standard for command line options that you can find? (such as for options of --help or --version).
+\item Can you write an 'INSTALL' text document to guide someone through building and installing your application?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Project - From Grids to Vectors}
+
+\subsection{Problem Definition}
+
+\paragraph{}  The simulation behaviour is a little rigid, with everything moving in grid lines. You can see your manager frowning and looking out of the office window at animals in the distance, apparently concerned that they aren't moving in tidy grid lines like the simulation. It's time to make the simulation more lifelike by simulating real movement a little better.
+
+\subsection{Requirements}
+\begin{enumerate}
+\item Assign any iteration pause of the program a simulation world time value
+\item Assign the UAV object properties
+    \begin{enumerate}
+    \item a current velocity (speed with direction)
+    \item a current position
+    \item a role, such as seek [suggest: seek, evade, stationary]
+    \end{enumerate}
+\item Assign the wild animal these properties, but with a lower speed and an evading role
+\item The UAV and animal can now move in any direction, not just on x and y grid lines
+\item The UAV will take the shortest path to the animal, (hint: calculate a displacement vector and travel along it)
+\item To be compatible with other coworkers, your manager asks that you standardise on metric units of measurement throughout.
+\end{enumerate}
+
+\subsection{Why are we doing this?}
+
+\paragraph{} We're assigning properties to an object. If the program was procedurally written before this point, now is a good time to introduce object orientated programming.
+
+\paragraph{} Mathematically vectors require more understanding than the previous more simple grid movement but it should be clear that this has direct real world applications compared to the previous cruder approach, the most obvious being any simulation, game or tracking software.
+
+\subsection{Bonus tasks}
+
+\begin{itemize}
+\item Add additional properties to the entities in the simulation
+    \begin{enumerate} 
+    \item a maximum speed
+    \item a minimum speed
+    \item a maximum acceleration rate
+    \item a maximum deceleration rate
+    \end{enumerate}
+\item If you test the simulation with the animal having a slightly higher top speed than the UAV, does the UAV ever catch it? If so, why?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Runways and Missions}
+
+\subsection{Problem Definition}
+
+\paragraph{} You feel like your code is getting to the point where it could be out of the simulation stage and in a real UAV in the not too distant future. There's some logic and control functionality to sort out first though. Lets start with the logic issues - we want the UAV to take off to perform the mission assigned and to return to the runway when complete.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Designate a ground layer height
+\item Designate an area of the ground surface to be a runway
+\item Alter the UAV starting function so that the UAV starts on the runway
+\item Add a sub status property to the UAV (runway, takeoff, flying, landing)
+\item Assign power(thrust) and mass values to the UAV object
+\item The UAV must reach a configurable speed to take off, it travels horizontally until this is done
+\item Make the number of animals to photograph random within a given configurable range (e.g. 1-4)
+\item Make the UAV return to the runway after all animals in the mission have been photographed. It's fine for the UAV to simply seek out the closest target each time.
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} The UAV needs mission control logic and state logic. It needs to know when it should be landing, hunting taking off or some other behaviour set. This might be similar to a game character that is patrolling, attacking, seeking assistance or similar.
+
+\paragraph{} Note: With the statement about the UAV heading to the closest target, it should be clear that there is no need to attempt to tackle the "travelling salesman" programming subject in this task.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you separate out the drones performance characteristics into a configuration file?
+\item Can you then make the program select the correct file from different possibilities based on the model of UAV chosen? 
+\item Can you do the same for the animals?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Line of Sight}
+
+\subsection{Problem Definition}
+
+\paragraph{} The camera on the UAV can't picture everything within a given range, it has a given envelope in which it can picture, for example it's placed on the nose of the UAV and can photograph in a half-sphere with useful definition to a specific range (e.g. 200metres maximum). We need to adjust our control software to cope with this.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Ensure the UAV has a orientation property
+     \begin{enumerate}
+         \item a front
+         \item pitch
+         \item yaw
+         \item roll
+     \end{enumerate}
+\item Add properties for the UAV cameras area/range envelope
+     \begin{enumerate}
+         \item range
+         \item sweep
+     \end{enumerate}
+\item Update the GUI to show the UAV orientation, you could use a simple 3 axis cross or something mode advanced such as a wireframe model
+\item Update the GUI to show the UAV camera area, perhaps as a translucent cone
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} The line of sight is used in games (can the alien/shark/enemy see you?) but also for any industrial application where an appliance (camera, blowtorch, electronic sensor) has to be within a certain distance of an object).
+
+\paragraph{} The changes both to the program and the GUI are fairly involved, so this is not a small amount of work.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Make a button in the GUI that causes a gust of wind that flips the UAV upside down. Does the UAV self right itself? Can you create functionality so that is does?
+\end{itemize}
+
+\clearpage
+
+
+
+
+\section{Testing Terrain Photography}
+
+\subsection{Problem Definition}
+
+\paragraph{} Our simulation currently uses a purely flat ground layer, but this wouldn't be encountered in real life and we want to make the simulations ground more varied. We also want to ensure the UAV avoids this terrain, and that ground dwelling animals don't float into the sky (if the animal is a bird it can, but some types of animal, such as deer, should remain on the surface).
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Use a heightmap to generate the terrain
+\item Add a ground only property to potential mission points
+\item Ground only targets must move on the surface only
+\item Update the GUI to show the ground
+\item The UAV must be rendered inoperable if it impacts the terrain (landing excluded)
+\item Have the UAV start the mission without the location of the subjects known, starting a search behaviour
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} This is a major step in making what was originally dots on a grid moving towards each other looking more like an aircraft flying around a virtual 3D world.
+
+\paragraph{} How the terrain is rendered in the GUI is left up to the programmer but provides the opportunity to start giving real character to your program - are you creating a photo realistic landscape? Or perhaps a 3D wireframe rendering?
+
+\paragraph{} The last task is fairly open ended, you might have a simple or complex solution. It sets up the behaviour of the drone to be able to deal with more complicated missions in future tasks.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Does you program use the same heightmap each time? Can you make it generate a new heightmap?
+\item Can you store heightmaps and select which one you want to use when starting the simulation?
+\item If the heightmap is 100x100 and your gameworld is 1000x1000, what will your program do?
+\item Decide how the UAV knows about terrain height - does it use a radar? If so what sort of terrain radar might be small enough to fit on a UAV? What terrain sight range would that device have? Can you model this in the program so that the UAV only knows about terrain in that area?
+\end{itemize}
+
+\clearpage
+
+
+\section{Control Surfaces}
+
+\subsection{Problem Definition}
+
+\paragraph{} At some point our simulation will take over the hardware of the UAV itself. We can take actual real flight, but the control software needs to activate the sub systems on the UAV to achieve flight.
+
+\paragraph{} For now the subroutines don't need to activate any motors or similar, but are in place so that they can be modified to do so.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Write a rudder control subroutine, affecting yaw
+\item Write a aileron control subroutine, affecting pitch and roll
+\item Write a throttle control subroutine
+\item Write a landing gear control subroutine
+\item Write a camera control subroutine
+\item Ensure simulated movement behaviour has a time value (a 90 degree roll takes time to complete)
+\item A heavier plane (full fuel load) should behave slightly differently
+\item Log all control surface moment
+\item Change the game world to operate at fps, not iteration sleep intervals
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} With some extra future work in the following projects, this will help to allow genuine flight control of a working model. It can also be used to allow a future detailed working graphical representation of the aircraft.
+
+\paragraph{} It's directly relevant to flight simulation games, to automated control of flying vehicles and as an example of control of mechanical objects via software.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you display the control surface state in the GUI?
+\item Does the game world appear smooth? You might want to make the roll and pitch fairly slow so that you can see the UAV activating the flight surfaces and tracking the movements of the target.
+\end{itemize}
+
+\clearpage
+
+
+\section{Crop Survey Mission}
+
+\subsection{Problem Definition}
+
+\paragraph{} You have a use case of a farmer who wishes to hire your UAV to perform a aerial video survey of his fields, so that the farmer can review the video to look at the crop health. You want to check the mission logic on your simulation first.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Add farmland to the terrain generation, it should be multiple adjacent areas. (e.g. 10x4, not 1x1)
+\item Add a field survey mission type and target
+\item Mission type includes field coordinates which are known by the UAV in advance
+\item UAV only turns on the camera just before the field
+\item UAV performs a flight pattern over the field to catch the whole area
+\item UAV turns off the camera after the field then seeks out next objective
+\item Add a weight and fuel level property to the UAV, decrease the fuel (and hence combined weight) over time
+\item Make the UAV return to base if fuel is low, even if the mission is not complete
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} This is a genuine use case for a UAV, farmers have used a UAV for this purpose already using GPS waypoints.
+
+\paragraph{} In terms of programming this is a shakedown. The tasks should be straightforward based on what has already been learnt from the preceding tasks but it should help find any lurking problems before moving on to harder tasks.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Add a mission type of multiple farms to photograph.
+\item Add a mission type to seek out unknown farm areas and photograph them.
+\item Opportunity missions: photograph any animals spotted en route.
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Wargames Part I}
+
+\subsection{Problem Definition}
+
+\paragraph{} A vendor is declaring their UAV as better than yours to your manager. A competition is proposed. You're asked to pit Blue (your) UAV against Red (competitor) UAV, entering the physical properties for each type of UAV into the simulation.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Add rate of turn information to each axis (if you haven't already)
+\item Add a second airfield to the terrain generation
+\item Make turn radius negatively affected by higher velocity
+\item Make climbing negatively affect velocity
+\item Make decent positively affect velocity
+\item Make each airfields owned by a specific team, with the teams UAV starting on that airfield.
+\item Mission success is when the competitors UAV is within the camera vision cone for a configurable length of time, perhaps 3 seconds.
+\item A targeted UAV is able to notice it is targeted and should attempt to manoeuvre out of the camera area.
+\item Make the red UAV slower with a larger turn radius but a larger camera cone
+\item Make the blue UAV faster with a sharper turn radius but smaller camera cone
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} We are starting to recreate the core mechanics of flight. This is also the core mechanics of aircraft dog fighting used in flight simulation games. If you can master this then your resulting portfolio will look good for a junior position in games development.
+
+\paragraph{}
+\subsection{Bonus Tasks}
+\begin{itemize}
+\item How do aircraft dogfight in real life? Is any of this information useful in the logic of the UAV? Is there any value in pre-programming specific manoeuvres into the software?
+\end{itemize}
+
+\clearpage
+
+
+
+
+
+
+
+
+\section{Cockpit}
+
+\subsection{Problem Definition}
+
+\paragraph{} A local pilot comes in to see the project but despite being interested is having some issues visualising what is happening in the simulation. The pilot asks if you could add recognisable instruments for the aircraft that the pilot is familiar with.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Make each entity (UAV,animal) selectable and show that entities properties
+\item For UAV entities, show GUI instruments
+    \begin{enumerate}
+        \item Artificial horizon
+        \item Airspeed indicator
+        \item Direction indicator
+        \item Vertical speed indicator
+        \item Altimeter
+        \item Landing gear position indicator
+        \item (virtual) GPS position
+        \item Camera activation light
+        \item Fuel Gauge
+    \end{enumerate}
+\item Log each UAVs flight data to a virtual black box
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} In the real world, instrument reading representations would be used if a pilot manually takes over and flys a remote UAV, in which case these need to act like the instruments the pilot is used to. 
+
+\paragraph{} From a programming point of view you're practising making your application more usable and immerse to your target audience. You'll be doing some research to see how some of the instruments look and behave. The flight data recording and visualisation of the instruments will also assist in future debugging if your UAV does something odd.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you play back a flight using the logs from the virtual black box? This should include position, control surface signals and instrument readings.
+\item What affects fuel consumption rate in real life? Can you improve the fuel consumption model to make it more realistic?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Visualisation}
+
+\subsection{Problem Definition}
+
+\paragraph{} You are asked to improve the visualisation and immersion of your software. Add audio and visual clues to events in the simulation.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Call a text to speech library for each of
+    \begin{enumerate}
+    \item Taking off
+    \item Landing
+    \item Searching for objective
+    \item Evading
+    \item Fuel low
+    \item Target sighted
+    \item Objective complete
+    \item Being targeted
+    \item Mission complete, returning to base
+    \end{enumerate}
+\item Record and add sound effects where it helps a user perceive what is going on (such as landing gear servos)
+\item Add an option to disable sound except for from the currently selected entity
+\item Add previous position trails to help judge movement
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} There's only so much information that can be taken in visually at a given time, audio clues are another method of communicating information and add interest to your software.
+
+\paragraph{} The quality of the free text to speech voices can be a little disappointing but it's important to demonstrate the application.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you make sound effects for the animals when photographed?
+\item Can you give the Red and Blue UAV's different voices?
+\item Can you make the voices on each team similar (same accent perhaps) but different (tone and pitch perhaps)?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Weather}
+
+\subsection{Problem Definition}
+
+\paragraph{} Currently the UAV doesn't have many problems to face. In the real world weather, especially wind, causes issues in free flight as well as at critical moments such as when landing or taking off.
+
+\paragraph{} To ensure our software can cope with this we want to introduce weather into our world and ensure the UAV can handle it by itself.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item{} Configure where your software should take a weather reading from (such as a internal XML based weather feed)
+\item{} Take a reading from the defined weather station
+\item{} In the simulation, introduce wind (variable over time) and gusts (short, chaotic) based on the weather, with a velocity and direction
+\item{} Make the wind affect the UAV (pitch, roll, yaw, speed, altitude) perhaps by adding attributes to the UAV model to show how much it is affected from each angle
+\item{} Ensure the UAV attempts to auto-correct for induced changes via calling the servo activation functions.
+\item{} Create a option in the GUI to create a gust of wind
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} Besides writing code to interface directly with chosen motor/servo interfaces this is the last remaining hurdle to controlling a real UAV in flight.
+
+\paragraph{} In programming terms it's firstly an example of environment modelling and for the UAV an example of a feedback loop. Feedback loops are used in lots of industrial processes and programming problems.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Look at the feature list for real world UAV autopilots and auto-landing modules. Is there anything they have that your UAV cannot do?
+\item What is the environmental envelope for your UAV? There should be wind conditions that are too much for the UAV to correct for. What happens in your simulation if you fly in these conditions?
+\item The local air authority doesn't allow UAVs to fly above a given height. Program this configurable limitation into you UAV control software.
+\end{itemize}
+
+\clearpage
+
+
+
+\section{More War Part II}
+
+\subsection{Problem Definition}
+
+\paragraph{} A games designer approaches you to evaluate if your software might be worth purchasing to incorporate into their next game, perhaps employing you and paying your former employer to license the code at the same time.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item In the GUI allow selection of the UAV versus UAV mode
+\item Whenever a UAV is caught in camera sights for a given length of time it is removed from play
+\item In this mode allow a perpetual sub mode whereby a new UAV is launched from the airfield whenever one is removed from play
+\item Track successful UAV camera shots per team, show these scores in a GUI interface
+\item Allow multiple (configurable) UAV's in the air at once, with a configurable upper limit on the number in the air
+\item Create more than one type of UAV - bomber type (targeting the airfield), and fighter type (targeting UAVs)
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} This is an example of changing the purpose of your software to meet new demands (new applications or new clients).
+
+\paragraph{} The more care you take in making your software modular, and logically divided internally, the easier it will be to adapt it for changes like this.
+
+\paragraph{} It's also a good behavioural testing environment. Take care to judge if the aircraft are behaving like aircraft you see in videos. If a certain manover looks unrealistic then something might be wrong and need corrective work. 
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Introduce missile objects with limited numbers per plane, limited flight time, specific turn radius. If you're unsure how to do this, think of these as a UAV from one of the early projects, with no camera but a proximity radius, defined mission and starting point set on the location of the launching UAV.
+\item Watch videos (youtube perhaps) of aircraft dogfighting, do the aircraft manover in a similar fashion?
+\end{itemize}
+
+\clearpage
+
+
+
+\section{Logical Separation}
+
+\subsection{Problem Definition}
+
+\paragraph{} The UAV competitor is back again, they've complained to your manager that your simulation is 'cheating' in that they say your UAV knows more about the world than it should. They challenge you to fly your UAV as a client on a independent networked server with other competitors on the same server.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Copy your software to date, name a copy as the world simulation, name another as the UAV control
+\item In the world simulation 
+    \begin{itemize}
+        \item Make the GUI show world creation options
+        \item Decide on a protocol by which the UAV will communicate what servos it activates and by which the world will tell it what readings the UAV receives. If you are working with others, publish the protocol so that you all use the same one. If working by yourself, consider publishing the server code and protocol on a website, see if you can find others to work with.
+        \item Make the world simulation listen on a IP port, able to handle multiple simultaneous connections
+    \end{itemize}
+\item In the UAV software
+    \begin{itemize}
+        \item Write a GUI that controls just the UAV, with an option of which server to connect to
+        \item The client should tell the server what type of UAV it is
+        \item The client communicates with the server when it wants to activate a motor or servo
+        \item The server tells the client what instrument readings it receives back
+        \item The client makes all the logical decisions about flight
+    \end{itemize}
+\item Fly your UAV on someone else's server
+\item Have someone else fly their UAV on your server
+\item Fly your UAV and another persons UAV against each other on the same server
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} You're proving your UAV would work in the real world using only the instruments and pre flight mission data it has.
+ 
+\paragraph{} You're collaborating with others to establish a protocol.
+
+\paragraph{} You can now compare your solutions to other programmers solutions, even if they've used an alternate programming language to yourself.
+
+\subsection{Bonus Tasks}
+
+\paragraph{} There's a lot to this problem, but think how you can keep the UAV software intact so that it might fly a real UAV servo and motors whilst still being able to connect to server at other times.
+
+\clearpage
+
+
+
+
+\section{Finishing Your Project}
+
+\subsection{Problem Definition}
+
+\paragraph{} You've created some great software. How will you present it to a future employer? How might you keep the software alive and improving over time?
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item If you haven't already, consider releasing your software on a public site
+\item If you have access to a hosted machine, consider running a public UAV server for others to connect to, ensure the protocol documentation is easy to find
+\item Spell check all your work including code comments, ensure it looks professional (the source, the user interface) remove any joke code comments or similar
+\item Create a website that discusses your work with examples of best practise from your work and screenshots
+\item How cheaply can you build an actual UAV? What additional problems might you face getting your software onto the UAV?
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} You are improving your presentation, you are expanding your contacts via involvement with others, you are developing social experience from working with others. All of these will make you more employable and easier for others to work with. It will also increase your enjoyment of programming
+
+\subsection{Bonus Tasks}
+
+\paragraph{} Send me an email to let me know what you thought of the tasks, anything that seems out of place or ways that you would sugggest to improve it at guyjohnedwards@gmail.com
+
+\end{document}
