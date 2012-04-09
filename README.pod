@@ -1,0 +1,21 @@
+=pod
+
+=head1 NAME
+
+Fun Programming Challenges
+
+=head1 DESCRIPTION
+
+This is a book with examples in order to provide tasks to solve when learning a new programming language
+
+It's intended that you can use the tasks (with material specific to your language) to self learn a new language
+
+It should also be possible to use the material in order to tutor others
+
+=head1 USAGE
+
+The book with tasks is provided in LaTeX format
+
+=head1 AUTHOR
+
+Guy Edwards <guyjohnedwards@gmail.com>
