@@ -15,14 +15,13 @@
 
 \begin{enumerate}
 \item Write code to create a 100x100 grid two dimensional grid.
-\item When the program starts, place a target location at random on the grid (at a integer point, e.g. 84x34 not 84.321x34.123)
-\item Also place a UAV starting position at random on the grid (at a integer point)
-\item When the program starts, print both the UAV position and the destination position
-\item With each iteration of the program, make the UAV move one X or Y coordinate closer to the destination
-\item Print the UAV position at each step
-\item Introduce a configurable delay in the code between each iteration so that a user can read the printed output before the next line appears
-\item Make the program stop when the UAV reaches the destination
-\item Ensure your code is commented so other staff can understand what your code is for
+\item When the program starts, place a target location at random on the grid (at a integer point, e.g. 84x34 not 84.321x34.123).
+\item Also place a UAV starting position at random on the grid (at a integer point).
+\item When the program starts, print the grid size, the UAV position, and the destination position.
+\item With each iteration of the program, make the UAV move one X or Y coordinate closer to the destination.
+\item Print the UAV position at each step.
+\item Introduce a configurable delay in the code between each iteration so that a user can read the printed output before the next line appears.
+\item Make the program stop with a message when the UAV reaches the destination.
 \end{enumerate}
 
 \subsection{Why Are We Doing This?}
@@ -36,9 +35,9 @@
 \paragraph{} The UAV has been sent to photograph a wild animal. The animal has been electronically tagged so the UAV knows the animals position at all times. The wild animal moves about as it looks for food but also hates the sound of the UAV and tries to run from it when it hears it.
 
 \begin{itemize}
-\item Make the destination point move one square with every other iteration (hence it moves at half the speed of the UAV).
+\item Make the wild animal move away from the UAV one unit every other turn (so essentially half the speed of the UAV).
 \item Make the wild animal stay within the grid boundaries. For instance it shouldn't end up at point 101,101 on a 100x100 grid.
-\item Make the wild animal move away from the UAV. Decide how the animal will move (or not) if cornered and each potential direction takes it closer to the UAV.
+\item Decide how the animal will move (or not) if cornered and each legal direction inside the grid takes it closer to the UAV.
 \end{itemize}
 
 \clearpage
