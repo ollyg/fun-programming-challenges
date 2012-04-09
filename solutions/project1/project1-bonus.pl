@@ -256,9 +256,7 @@ sub can_move_y {
 
 =head1 BUGS AND LIMITATIONS
 
-* I've deliberatly left out some beneficial feature to keep the code
-simple (such as a higher resolution timer for the sleep interval that can do
-sub second intervals).
+None known, report any found to the author.
 
 =head1 AUTHOR
 
