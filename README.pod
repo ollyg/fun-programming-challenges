@@ -6,16 +6,50 @@ Fun Programming Challenges
 
 =head1 DESCRIPTION
 
-This is a book with examples in order to provide tasks to solve when learning a new programming language
+This is a book with examples in order to provide tasks to solve when learning
+a new programming language.
 
-It's intended that you can use the tasks (with material specific to your language) to self learn a new language
+ * It's intended that you can use the tasks (with material specific to your language) to self learn a new language.
+ * It should also be possible to use the material in order to tutor others.
+ * It could also be used to test your skills, or try something different if feeling a bit burnt out with your normal tasks
 
-It should also be possible to use the material in order to tutor others
+I've tried to make the tasks fun but with a real world application that should
+make the solutions you create (and the skills you learn) useful for a
+portfolio.
 
 =head1 USAGE
 
-The book with tasks is provided in LaTeX format
+The book with tasks is provided in LaTeX format. The tasks are available as
+seperate files with a problem to solve on one side of the paper, and bonus
+tasks on the other side, should you, or the person you are mentoring be hungry
+for more in the time given to solve a task.
+
+=head1 FEEDBACK
+
+I'm interested in what you (yes you) think of the tasks
+
+ * Too hard at the beginning?
+ * Too easy at the end?
+ * Spelling, grammar, formatting mistakes
+ * Do you work in an industry a task covers? With your knowledge do you think the task could be made more relevant?
+
+Even if you just used a task and found it fun, let me know. I like random
+emails from friendly people, let me know where you're from (almost like a
+virtual postcard) I find it motivational.
 
 =head1 AUTHOR
 
 Guy Edwards <guyjohnedwards@gmail.com>
+
+=head1 LICENSE
+
+This is published under a Creative Commons share alike license.
+
+Lawyers and commercial people with sketchy ethics should read the full version
+http://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+A laymans summary is here:
+http://creativecommons.org/licenses/by-sa/3.0/
+
+Some solutions may be included, and may have a different (more permissive)
+license. In these cases the alternative license will be included in the code.
