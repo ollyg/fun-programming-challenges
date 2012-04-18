@@ -1,0 +1,50 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+
+\section{Logical Separation}
+
+\subsection{Problem Definition}
+
+\paragraph{} The UAV competitor is back again, they've complained to your manager that your simulation is 'cheating' in that they say your UAV knows more about the world than it should. They challenge you to fly your UAV as a client on a independent networked server with other competitors on the same server.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Copy your software to date, name a copy as the world simulation, name another as the UAV control
+\item In the world simulation 
+    \begin{itemize}
+        \item Make the GUI show world creation options
+        \item Decide on a protocol by which the UAV will communicate what servos it activates and by which the world will tell it what readings the UAV receives. If you are working with others, publish the protocol so that you all use the same one. If working by yourself, consider publishing the server code and protocol on a website, see if you can find others to work with.
+        \item Make the world simulation listen on a IP port, able to handle multiple simultaneous connections
+    \end{itemize}
+\item In the UAV software
+    \begin{itemize}
+        \item Write a GUI that controls just the UAV, with an option of which server to connect to
+        \item The client should tell the server what type of UAV it is
+        \item The client communicates with the server when it wants to activate a motor or servo
+        \item The server tells the client what instrument readings it receives back
+        \item The client makes all the logical decisions about flight
+    \end{itemize}
+\item Fly your UAV on someone else's server
+\item Have someone else fly their UAV on your server
+\item Fly your UAV and another persons UAV against each other on the same server
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} You're proving your UAV would work in the real world using only the instruments and pre flight mission data it has.
+ 
+\paragraph{} You're collaborating with others to establish a protocol.
+
+\paragraph{} You can now compare your solutions to other programmers solutions, even if they've used an alternate programming language to yourself.
+
+\subsection{Bonus Tasks}
+
+\paragraph{} There's a lot to this problem, but think how you can keep the UAV software intact so that it might fly a real UAV servo and motors whilst still being able to connect to server at other times.
+
+\end{document}

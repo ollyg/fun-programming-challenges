@@ -1,0 +1,41 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Crop Survey Mission}
+
+\subsection{Problem Definition}
+
+\paragraph{} You have a use case of a farmer who wishes to hire your UAV to perform a aerial video survey of his fields, so that the farmer can review the video to look at the crop health. You want to check the mission logic on your simulation first.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Add farmland to the terrain generation, it should be multiple adjacent areas. (e.g. 10x4, not 1x1)
+\item Add a field survey mission type and target
+\item Mission type includes field coordinates which are known by the UAV in advance
+\item UAV only turns on the camera just before the field
+\item UAV performs a flight pattern over the field to catch the whole area
+\item UAV turns off the camera after the field then seeks out next objective
+\item Add a weight and fuel level property to the UAV, decrease the fuel (and hence combined weight) over time
+\item Make the UAV return to base if fuel is low, even if the mission is not complete
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} This is a genuine use case for a UAV, farmers have used a UAV for this purpose already using GPS waypoints.
+
+\paragraph{} In terms of programming this is a shakedown. The tasks should be straightforward based on what has already been learnt from the preceding tasks but it should help find any lurking problems before moving on to harder tasks.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Add a mission type of multiple farms to photograph.
+\item Add a mission type to seek out unknown farm areas and photograph them.
+\item Opportunity missions: photograph any animals spotted en route.
+\end{itemize}
+
+\end{document}

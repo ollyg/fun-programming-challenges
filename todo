@@ -1,0 +1,26 @@
+=pod
+
+=head1 Todo
+
+=head2 Creation
+
+* Write up the hydroponics tasks
+* Write up the mars-rover tasks
+* Write up the companion tasks
+
+* Add a online portfolio task
+* Add a physical portfolio task
+
+=head2 Formatting
+
+* Pull UAV tasks out of the original .tex file
+* Scripting to create a single book from seperate .tex files
+* Ensure chapter numbering works correctly
+* Add appropriate open source license
+
+=head2 Extra
+
+* Proofreading
+* Make physical copies [lulu.com?]
+* More proofreading
+* Get an ISBN

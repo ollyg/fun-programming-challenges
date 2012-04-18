@@ -1,0 +1,42 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+
+\section{Weather}
+
+\subsection{Problem Definition}
+
+\paragraph{} Currently the UAV doesn't have many problems to face. In the real world weather, especially wind, causes issues in free flight as well as at critical moments such as when landing or taking off.
+
+\paragraph{} To ensure our software can cope with this we want to introduce weather into our world and ensure the UAV can handle it by itself.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item{} Configure where your software should take a weather reading from (such as a internal XML based weather feed)
+\item{} Take a reading from the defined weather station
+\item{} In the simulation, introduce wind (variable over time) and gusts (short, chaotic) based on the weather, with a velocity and direction
+\item{} Make the wind affect the UAV (pitch, roll, yaw, speed, altitude) perhaps by adding attributes to the UAV model to show how much it is affected from each angle
+\item{} Ensure the UAV attempts to auto-correct for induced changes via calling the servo activation functions.
+\item{} Create a option in the GUI to create a gust of wind
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} Besides writing code to interface directly with chosen motor/servo interfaces this is the last remaining hurdle to controlling a real UAV in flight.
+
+\paragraph{} In programming terms it's firstly an example of environment modelling and for the UAV an example of a feedback loop. Feedback loops are used in lots of industrial processes and programming problems.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Look at the feature list for real world UAV autopilots and auto-landing modules. Is there anything they have that your UAV cannot do?
+\item What is the environmental envelope for your UAV? There should be wind conditions that are too much for the UAV to correct for. What happens in your simulation if you fly in these conditions?
+\item The local air authority doesn't allow UAVs to fly above a given height. Program this configurable limitation into you UAV control software.
+\end{itemize}
+
+\end{document}

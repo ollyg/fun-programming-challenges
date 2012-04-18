@@ -1,0 +1,51 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Enterprise Funding}
+
+\subsection{Problem Definition}
+
+\paragraph{} Your manager comes running in to your office to explain that they've won more funding for the project. As part of the new funding some of the contributors may ask for a demonstration, and so you want to make basic changes to improve the application before the contributors arrive.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Setup or upload your code to a version control system.
+\item What static code analysis tools exist for your language (if any)? When you run them on your code what is the output? If errors are reported, fix them where appropriate.
+\item What coding practises exist for your language (if any). Have you met these standards? If not, alter the code so that it does.
+\item Expand the projects output scale
+    \begin{enumerate}
+        \item Add a Z coordinate to the map grid
+        \item ensure the placement functions also randomise the Z placement
+        \item ensure the UAV tracks the destination in vertical Z space
+        \item alter the program to consider the destination photographed when the UAV is within a given configurable grid range
+        \item expand the simulation grid to 1000 (x) x 1000 (y) x 100 (z) vertical
+    \end{enumerate}
+\item Add an option to your program so that when it is run in a testing scenario, the delay between iterations is removed
+\item Write a basic script (in any language) to run through the text output produced by a test run of your code and check for invalid coordinates outside of the given simulation area.
+\end{enumerate}
+
+\subsection{Why are we doing this?}
+
+\paragraph{} The problems from this point onwards will get more involved and the codebase will grow. These changes will make managing any codebase easier and assist in teaching programmers to find out what is accepted good coding practise for any given language.
+
+\subsection{Bonus tasks}
+
+\paragraph{} You still have a day or two spare before the demonstration.
+
+\begin{itemize}
+\item To aid testing, are you able to get your program to run a set number of times (such as 1000) and output the results to a file for the test script to then analyse?
+\item Are there any other sanity checks you can add to your testing script?
+\item Does your program include a 'LICENSE' file? If not, what license would you add? Is this complicated by whose computing facilities and time you are writing the code in?
+\item Is the spelling in your code comments correct? Can you automate the spelling check?
+\item What command line options does your program support? Is there any minimum suggested standard for command line options that you can find? (such as for options of --help or --version).
+\item Can you write an 'INSTALL' text document to guide someone through building and installing your application?
+\end{itemize}
+
+\clearpage
+
+\end{document}

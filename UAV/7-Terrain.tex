@@ -1,0 +1,42 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Testing Terrain Photography}
+
+\subsection{Problem Definition}
+
+\paragraph{} Our simulation currently uses a purely flat ground layer, but this wouldn't be encountered in real life and we want to make the simulations ground more varied. We also want to ensure the UAV avoids this terrain, and that ground dwelling animals don't float into the sky (if the animal is a bird it can, but some types of animal, such as deer, should remain on the surface).
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Use a heightmap to generate the terrain
+\item Add a ground only property to potential mission points
+\item Ground only targets must move on the surface only
+\item Update the GUI to show the ground
+\item The UAV must be rendered inoperable if it impacts the terrain (landing excluded)
+\item Have the UAV start the mission without the location of the subjects known, starting a search behaviour
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} This is a major step in making what was originally dots on a grid moving towards each other looking more like an aircraft flying around a virtual 3D world.
+
+\paragraph{} How the terrain is rendered in the GUI is left up to the programmer but provides the opportunity to start giving real character to your program - are you creating a photo realistic landscape? Or perhaps a 3D wireframe rendering?
+
+\paragraph{} The last task is fairly open ended, you might have a simple or complex solution. It sets up the behaviour of the drone to be able to deal with more complicated missions in future tasks.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Does you program use the same heightmap each time? Can you make it generate a new heightmap?
+\item Can you store heightmaps and select which one you want to use when starting the simulation?
+\item If the heightmap is 100x100 and your gameworld is 1000x1000, what will your program do?
+\item Decide how the UAV knows about terrain height - does it use a radar? If so what sort of terrain radar might be small enough to fit on a UAV? What terrain sight range would that device have? Can you model this in the program so that the UAV only knows about terrain in that area?
+\end{itemize}
+
+\end{document}

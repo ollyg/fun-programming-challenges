@@ -1,0 +1,46 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Cockpit}
+
+\subsection{Problem Definition}
+
+\paragraph{} A local pilot comes in to see the project but despite being interested is having some issues visualising what is happening in the simulation. The pilot asks if you could add recognisable instruments for the aircraft that the pilot is familiar with.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Make each entity (UAV,animal) selectable and show that entities properties
+\item For UAV entities, show GUI instruments
+    \begin{enumerate}
+        \item Artificial horizon
+        \item Airspeed indicator
+        \item Direction indicator
+        \item Vertical speed indicator
+        \item Altimeter
+        \item Landing gear position indicator
+        \item (virtual) GPS position
+        \item Camera activation light
+        \item Fuel Gauge
+    \end{enumerate}
+\item Log each UAVs flight data to a virtual black box
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} In the real world, instrument reading representations would be used if a pilot manually takes over and flys a remote UAV, in which case these need to act like the instruments the pilot is used to. 
+
+\paragraph{} From a programming point of view you're practising making your application more usable and immerse to your target audience. You'll be doing some research to see how some of the instruments look and behave. The flight data recording and visualisation of the instruments will also assist in future debugging if your UAV does something odd.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you play back a flight using the logs from the virtual black box? This should include position, control surface signals and instrument readings.
+\item What affects fuel consumption rate in real life? Can you improve the fuel consumption model to make it more realistic?
+\end{itemize}
+
+\end{document}

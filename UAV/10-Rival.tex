@@ -1,0 +1,40 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+
+\section{Wargames Part I}
+
+\subsection{Problem Definition}
+
+\paragraph{} A vendor is declaring their UAV as better than yours to your manager. A competition is proposed. You're asked to pit Blue (your) UAV against Red (competitor) UAV, entering the physical properties for each type of UAV into the simulation.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Add rate of turn information to each axis (if you haven't already)
+\item Add a second airfield to the terrain generation
+\item Make turn radius negatively affected by higher velocity
+\item Make climbing negatively affect velocity
+\item Make decent positively affect velocity
+\item Make each airfields owned by a specific team, with the teams UAV starting on that airfield.
+\item Mission success is when the competitors UAV is within the camera vision cone for a configurable length of time, perhaps 3 seconds.
+\item A targeted UAV is able to notice it is targeted and should attempt to manoeuvre out of the camera area.
+\item Make the red UAV slower with a larger turn radius but a larger camera cone
+\item Make the blue UAV faster with a sharper turn radius but smaller camera cone
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} We are starting to recreate the core mechanics of flight. This is also the core mechanics of aircraft dog fighting used in flight simulation games. If you can master this then your resulting portfolio will look good for a junior position in games development.
+
+\paragraph{}
+\subsection{Bonus Tasks}
+\begin{itemize}
+\item How do aircraft dogfight in real life? Is any of this information useful in the logic of the UAV? Is there any value in pre-programming specific manoeuvres into the software?
+\end{itemize}
+
+\end{document}

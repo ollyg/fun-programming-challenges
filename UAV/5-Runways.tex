@@ -1,0 +1,41 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Runways and Missions}
+
+\subsection{Problem Definition}
+
+\paragraph{} You feel like your code is getting to the point where it could be out of the simulation stage and in a real UAV in the not too distant future. There's some logic and control functionality to sort out first though. Lets start with the logic issues - we want the UAV to take off to perform the mission assigned and to return to the runway when complete.
+
+\subsection{Requirements}
+
+\begin{enumerate}
+\item Designate a ground layer height
+\item Designate an area of the ground surface to be a runway
+\item Alter the UAV starting function so that the UAV starts on the runway
+\item Add a sub status property to the UAV (runway, takeoff, flying, landing)
+\item Assign power(thrust) and mass values to the UAV object
+\item The UAV must reach a configurable speed to take off, it travels horizontally until this is done
+\item Make the number of animals to photograph random within a given configurable range (e.g. 1-4)
+\item Make the UAV return to the runway after all animals in the mission have been photographed. It's fine for the UAV to simply seek out the closest target each time.
+\end{enumerate}
+
+\subsection{Why Are We Doing This?}
+
+\paragraph{} The UAV needs mission control logic and state logic. It needs to know when it should be landing, hunting taking off or some other behaviour set. This might be similar to a game character that is patrolling, attacking, seeking assistance or similar.
+
+\paragraph{} Note: With the statement about the UAV heading to the closest target, it should be clear that there is no need to attempt to tackle the "travelling salesman" programming subject in this task.
+
+\subsection{Bonus Tasks}
+
+\begin{itemize}
+\item Can you separate out the drones performance characteristics into a configuration file?
+\item Can you then make the program select the correct file from different possibilities based on the model of UAV chosen? 
+\item Can you do the same for the animals?
+\end{itemize}
+
+\end{document}

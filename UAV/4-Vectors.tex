@@ -1,0 +1,48 @@
+\documentclass[11pt]{book}
+%Gummi|062|=)
+\title{\textbf{Programming Tasks}}
+\author{Guy Edwards}
+\date{30th March 2012}
+\begin{document}
+
+\section{Project - From Grids to Vectors}
+
+\subsection{Problem Definition}
+
+\paragraph{}  The simulation behaviour is a little rigid, with everything moving in grid lines. You can see your manager frowning and looking out of the office window at animals in the distance, apparently concerned that they aren't moving in tidy grid lines like the simulation. It's time to make the simulation more lifelike by simulating real movement a little better.
+
+\subsection{Requirements}
+\begin{enumerate}
+\item Assign any iteration pause of the program a simulation world time value
+\item Assign the UAV object properties
+    \begin{enumerate}
+    \item a current velocity (speed with direction)
+    \item a current position
+    \item a role, such as seek [suggest: seek, evade, stationary]
+    \end{enumerate}
+\item Assign the wild animal these properties, but with a lower speed and an evading role
+\item The UAV and animal can now move in any direction, not just on x and y grid lines
+\item The UAV will take the shortest path to the animal, (hint: calculate a displacement vector and travel along it)
+\item To be compatible with other coworkers, your manager asks that you standardise on metric units of measurement throughout.
+\end{enumerate}
+
+\subsection{Why are we doing this?}
+
+\paragraph{} We're assigning properties to an object. If the program was procedurally written before this point, now is a good time to introduce object orientated programming.
+
+\paragraph{} Mathematically vectors require more understanding than the previous more simple grid movement but it should be clear that this has direct real world applications compared to the previous cruder approach, the most obvious being any simulation, game or tracking software.
+
+\subsection{Bonus tasks}
+
+\begin{itemize}
+\item Add additional properties to the entities in the simulation
+    \begin{enumerate} 
+    \item a maximum speed
+    \item a minimum speed
+    \item a maximum acceleration rate
+    \item a maximum deceleration rate
+    \end{enumerate}
+\item If you test the simulation with the animal having a slightly higher top speed than the UAV, does the UAV ever catch it? If so, why?
+\end{itemize}
+
+\end{document}
