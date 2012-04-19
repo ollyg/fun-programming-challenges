@@ -1,0 +1,290 @@
+\documentclass[11pt]{book}
+%Gummi|063|=)
+\title{\textbf{Robotic Assistant}}
+\author{Guy Edwards}
+\date{19th April 2012}
+\begin{document}
+
+\maketitle
+
+\section{Foreword}
+
+\paragraph{} This book aims to provide a set of problems, suitable for assisting learning any language that has a graphical library available to it. It's deliberately not language specific however your language should be able to cope with objects.
+
+\paragraph{} The tasks start off at a reasonable level and are intended to have increasing difficulty. If learning programming for the first time you'll need a mentor to help guide you through background subjects that tasks cover, for instance when to use arrays to solve a problem. It might be possible to use the tasks as part of a taught course.
+
+\paragraph{} I originally wrote this to help myself improve my programming. Any feedback on perceived missing steps or task difficulty jumps is welcome at guyjohnedwards@gmail.com
+
+
+\tableofcontents
+
+\chapter{Robotic assistant}
+
+\paragraph{} For this set of problems you are a programmer working for a corporation that makes robotic assistants. You're asked to create the software for an assistant to help people in a semi-industrial workplace. A good comparison would be GERTY in the film Moon.
+
+\clearpage
+
+\section{Provide Sensors}
+
+\paragraph{} The head of the robotics team comes to see you, they're currently working on another project but in the meantime they'd like you to do some preparation for the upcoming project.
+
+\paragraph{} You're to write a number of dummy sensors that return a reading when called. It doesn't especially matter what the readings are but a temperature sensor should return temperatures (not something unrelated, like a rainfall amount). You also want to be able to change these readings, so that you can use the dummy sensors for testing later code.
+
+\begin{enumerate}
+\item Create code for a dummy internal temperature sensor
+\item Create code for a dummy external temperature sensor
+\item Create code for a dummy temperature sensor for 4 surrounding rooms
+\item Create code for a dummy humidity sensor for the 4 surrounding rooms
+\item Create code for a dummy light level sensor for the 4 surrounding rooms
+\item Create code for a dummy door pressure pad
+\item Create code for a dummy air pressure sensor
+\item Create code for a dummy smoke detector for each room
+\item Create code for a system that lets you change the readings or state of each dummy sensor so that a system using the code will receive the readings you dictate
+\end{enumerate}
+
+\clearpage
+
+\section{Movement}
+
+\paragraph{} The robot will move around on a ceiling mounted runner (so it hangs from a monorail). It will move between a number of rooms.
+
+\paragraph{} You're asked to create proof of concept code showing the logic the robot will use to get to a different room.
+
+\begin{enumerate}
+\item Create a 100$\times$100 grid
+\item Define 4 rooms within the grid (with between rooms to simulate walls)
+\item Define the reach of the robot grappling arm in squares
+\item Create a rail system within and between the rooms
+\item Create a dummy motor control that moves the robots position when activated
+\item Create a position sensor that tells the robot where it is when queried
+\item Create a navigation system such that to reach any given coordinate the robot correctly navigates between rooms along the rails
+\item At large reach settings, ensure the robot doesn't think it can reach a grid in an adjacent room even if it's within absolute reach range as it can't reach through a wall.
+\item Make the robot print out useful logging information about the decisions it is making
+\end{enumerate}
+
+\clearpage
+
+\section{Speech}
+
+\paragraph{} The robot is to talk to the controller
+
+\begin{enumerate}
+\item What text to speech libraries are available to you?
+\item What voices are available for that engine?
+\item Compare engines and voices, what's the most human-like voice you can find?
+\item Can the voice engine alter the voice to simulate mood changes?
+\item Create a small program that takes printed text your robot outputs as it moves and passes it to the text to speech library you've chosen, speaking it back to the user.
+\end{enumerate}
+
+\clearpage
+
+\section{Hearing}
+
+\paragraph{} You're informed that the robot is to accept voice activated commands
+
+\begin{enumerate}
+\item Identify a speech to text library
+\item Ensure you can pass sound from the microphone into the text to speech library
+\item Write the robots movement program so you can tell it which room to go to next
+\end{enumerate}
+
+\clearpage
+
+
+\section{Expressions}
+
+\paragraph{} The original GERTY in the film had facial expressions created by an artist Gavin Rothery. These conveyed the robots emotions simply but effectively without attempting the much harder task for mimicking a human body or complex facial expressions.
+
+\paragraph{} We will also create some expressions for our assistant.
+
+\paragraph{} A note on copyright and using other peoples work: Don't directly use Gavins actual GERTY artwork as your basis. For example don't download and edit another persons emoticon images (which would be plagiarism) but come up with your own from scratch. It's ok to use a similar emoticons theme (there's only so many ways to draw a line face on a orange circle) but don't directly use another artists work, even as some sort of stencil or to measure or to take colour readings as you need a clean implementation of your own. In general for any artwork it's a good idea to keep your templates and drafts that you used in a archive in case you get questions or disputes later.
+
+\begin{enumerate}
+\item Create a base blank template for the faces to go onto, to display on a 7`` touchscreen
+\item Create a happy face which will be come the default face
+\item Create a unhappy face
+\item Create a confused face
+\item What other faces did GERTY have? Are you able to find out?
+\item Keep a record of what settings you used in your art program to create the faces so that you can add more faces in the distant future.
+\item add a mood property to your companion code
+\end{enumerate}
+
+\clearpage
+
+\section{Faking Emotional Behaviour}
+
+\paragraph{} Whilst you aren't yet creating a neural network or similar to try and create a genuine thinking machine, you'd like to implement some basic mood functionality
+
+\begin{enumerate}
+\item Add a call for help function
+\item Add scenarios when the robot should call for help, such as the smoke detector going off
+\item Add a warning function, such that minor problems are stored up for when a human is encountered
+\item Add minor problem scenarios, such as sensors failing
+\item When the companion reports sensors are well, it should show the happy face
+\item When the companion reports warnings or errors it should use a unhappy face
+\end{enumerate}
+
+\clearpage
+
+
+\section{Puppies}
+
+\paragraph{} Your section manager has spent the weekend playing with a puppy. He makes derisive comments that the robot isn't smart enough to even play fetch.
+
+\begin{enumerate}
+\item define a storage area in each room
+\item scatter objects to pick up around the simulation
+\item make the robot aware of these objects when in the same room
+\item make the robot place each object into the storage area
+\end{enumerate}
+
+\clearpage
+
+\section{Chat}
+
+\paragraph{} To improve the immersiveness of having a robot companion, you're asked to make the robot respond to general conversation
+
+\begin{enumerate}
+\item Try an extended conversation with cleverbot
+\item What stand alone chatbots are available to integrate with your robot creation?
+\item How might you make the robot distinguish between general chat and actual commands or queries about the environment?
+\item Create a working demonstration of the robot taking both the previous voice commands to move about and also able to conduct a conversation
+\end{enumerate}
+
+\section{Sight}
+
+\paragraph{} The central robot unit itself requires vision. 
+
+\begin{enumerate}
+\item Create proximity sensors for the robot (ultrasnoics). These can be dummy sensors if no hardware is available.
+\item Create twin cameras for the robot to give depth perception (IR perhaps). Use any USB webcams connected to the test machine to achieve this. If funds allow the Microsoft Kinect module may be an option.
+\item If using IR for depth, create a third camera for colour detection
+\item Make the robot stop if the ultrasonics detect a barrier ahead.
+\end{enumerate}
+
+\clearpage
+
+\section{Dogs}
+
+\paragraph{} Now that the robot has sight, the theoretical game of fetch can move on to the beginnings of a slightly more practical demonstration
+
+\begin{enumerate}
+\item setup the webcams to survey an empty area
+\item define a distinct object (a bright orange dog toy perhaps) to be the target
+\item make the software identify the object in the picture
+\end{enumerate}
+
+\clearpage
+
+\section{Laws}
+
+\paragraph{} Your section manager comes running in, one of the other managers has mentioned to him Asimov and the laws of robotics. He asks if you can implement the laws into the robot before the afternoon. You point out it might take a little longer.
+
+\begin{enumerate}
+\item What different ways might your robot attempt to identify a human (as opposed to an object like a plant pot)?
+\item Under what circumstances would your detection fail?
+\end{enumerate}
+
+\clearpage
+
+\section{Inspiration}
+
+
+\paragraph{} Watching the robots in films can give you ideas on how we wish robots could work, and by thinking through how the films depiction might be made to work in real life, we might decide to incorporate good ideas into our design.
+
+\paragraph{} Here's an example using the film Wall-e, featuring a robot that compacts rubbish.
+
+\subsection{An example}
+
+\paragraph{} In mechanical terms, how does Wall-e know to switch from working mode to shelter/recharge mode?
+
+\begin{itemize}
+\item You might suggest it appears to be based on optical observations of the suns position, but it could be silently combined with a internal or radio (perhaps GPS) received clock reading.
+\end{itemize}
+
+\paragraph{} If you had to describe different behaviour classes wall-e is in during a working day, what individual modes of operation or behaviours can you identify?
+
+\paragraph{} The list might end up like
+
+\begin{enumerate}
+\item inactive whilst sheltering from hostile conditions
+  \begin{enumerate}
+  \item Store items found during the day
+     \begin{enumerate}
+     \item Item sorting based on shape, size
+     \end{enumerate}
+  \end{enumerate}
+\item recharging
+\item working
+  \begin{enumerate}
+  \item a sub process when unidentified things are found
+  \item a sub process that collects interesting items
+  \item a sub process that recognises self damage
+  \item a sub process that recognises items for repair
+  \end{enumerate}
+\end{enumerate}
+
+\paragraph{} What identifiable components does wall-e have?
+
+\begin{tabular}{|l|l|}
+\hline
+	Component & Notes\\
+	An independent weather alerting module & reports dust storms approaching\\
+	a gyroscopic sensor & in order for the rocking motion depicted when entering sleep to be detectable and in order for wall-e to balance on one track\\
+	Two visual sensors, mounted in a movable housing system & can depict emotion by position\\
+	A movable neck mechanism & \\
+	Drive motors mounted on a bipedal mechanism & allows movement to raise and balance on one track\\
+	A battery & \\
+	colour LCD front panel & battery charge indicator and low battery warning\\
+	A battery charged sound alert & \\
+	A deployable solar panel array & \\
+	Two manipulator arms & \\
+	Some form of cutting torch & used to open a container\\
+	lens wipers & clear dust from the optics\\
+	lens shields & used like eyelids to depict emotion\\
+	A compacting unit & robots main design purpose\\
+	dead reckoning system or GPS & method of navigating without sight during dust storm\\
+	tactile or resistance measurement on the manipulators & can feel using manipulators when blind \\
+\hline
+\end{tabular}
+
+\paragraph{} What deeper abilities above a simple robotic execution of tasks does wall-e have?
+
+\begin{enumerate}
+\item identifying living things based on movement, behaviour, interaction
+\item fear of inflicting pain (or perhaps fear of loss? or error? or harming life?) [evidence: accidentally running over cockroach]
+    \begin{enumerate}
+    \item audio expression of emotions, fear, awe, curiosity
+    \end{enumerate}
+\item identification of plant requirements [scoops up soil with plant, doesn't touch actual plant]
+\item introspection
+  \begin{enumerate}
+  \item understanding a deeper meaning behind televised dancing - the concept of companionship
+  \item starting at the nights sky to music
+  \item rocking a cradle when going to sleep
+  \end{enumerate}
+\item identification of approaching dangerous conditions
+  \begin{enumerate}
+  \item hiding from rocket blast
+  \end{enumerate}
+\item recognises a container [opens up a fridge to look inside]
+\end{enumerate}
+
+\subsection{Task}
+
+\paragraph{} Watch a different film and make you own notes on the robot, which features would be desirable, which are flaws? How would you avoid those flaws? Could you create the fictional software for the robot in the film? If not, how close could you get?
+
+\clearpage
+
+\section{Further work}
+
+\paragraph{} Ebay typically has some USB interface plastic robotic arm kits, if you can afford it consider purchasing one and integrating it with your program.
+
+\paragraph{} Could neural networks be used to improve your robot, if so how would they be incorporated?
+
+\paragraph{} When humans get a free moment they think, ponder or dream. What might the assistant do while idle?
+
+\paragraph{} Humans talk with each other and share information, what information might this companion share with another identical model that would benefit both entities? Can you program this to work in the simulation?
+
+
+\end{document}
