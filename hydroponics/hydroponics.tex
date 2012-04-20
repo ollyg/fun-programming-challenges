@@ -1,0 +1,76 @@
+\documentclass[11pt]{book}
+%Gummi|063|=)
+\author{Guy Edwards}
+\date{19th April 2012}
+\title{Hydroponics}
+\begin{document}
+
+\maketitle
+
+\section{Foreword}
+
+\paragraph{} [Note: this chapter is just a rough draft, if you want a more complete chapter take a look at the UAV folder tasks]
+
+\paragraph{} This book aims to provide a set of problems, suitable for assisting learning any language that has a graphical library available to it. It's deliberately not language specific however your language should be able to cope with objects.
+
+\paragraph{} The tasks start off at a reasonable level and are intended to have increasing difficulty. If learning programming for the first time you'll need a mentor to help guide you through background subjects that tasks cover, for instance when to use arrays to solve a problem. It might be possible to use the tasks as part of a taught course.
+
+\paragraph{} I originally wrote this to help myself improve my programming. Any feedback on perceived missing steps or task difficulty jumps is welcome at guyjohnedwards@gmail.com
+
+
+\paragraph{}
+
+\tableofcontents
+
+\chapter{Hydroponics}
+
+For this set of problems you are a developer assisting a horticultural company in developing automated soil-less plant growing systems.
+
+\clearpage
+
+\section{Create Tests}
+
+Construct a program that operates as a test harness for future development
+
+\begin{enumerate}
+\item write a function that takes a reading from the water level sensor
+\item write a function that allows a test program to set the water level sensor reading
+\item repeat for water pump control, ph level, nutrient concentration, nutrient pump, light level sensor, power usage, extractor fan rpm, extractor fan status (on/off), air temperature and air humidity
+\item write an interface so that a testing operator can set the variables as desired
+\end{enumerate}
+
+\clearpage
+
+\section{Closed loops}
+
+In this task we're creating basic automatic feedback
+
+\begin{itemize}
+\item when the water level is low, more is pumped in from a reservoir
+\item when the humidity is too high an extractor fan turns on
+\item when the air temperature is too high an extractor fan turns on
+\item [more]
+\end{itemize}
+
+\clearpage
+
+\section{More control}
+
+Construct a program such that
+
+\begin{itemize}
+\item the operator can see the outputs from the various sensors
+\item the operator can adjust settings of pumps, valves and switches
+\item this operations interface is separate to the testing interface
+\end{itemize}
+
+\clearpage
+
+\section{Refinement}
+
+
+[to follow]
+
+
+
+\end{document}
