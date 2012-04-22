@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# the script to create a single document out of all the seperate files
+
+# define the destination
+OUTPUT='compiled/fun-programming-challenges.tex'
+HTMLOUTPUT='compiled/fun-programming-challenges.html'
+LATEX2HTML=`which latex2html`;
+HTMLOPTIONS='-split 0';
+
+# define the source
+INTRO='header.tex'
+END='footer.tex'
+
+CHAPTER_UAV="./UAV/intro.tex \
+             ./UAV/1-Navigation.tex \
+             ./UAV/2-Visualisation.tex \
+             ./UAV/3-Funding.tex \
+             ./UAV/4-Vectors.tex \
+             ./UAV/5-Runways.tex \
+             ./UAV/6-Sight.tex \
+             ./UAV/7-Terrain.tex \
+             ./UAV/8-Surfaces.tex \
+             ./UAV/9-Missions.tex \
+             ./UAV/10-Rival.tex \
+             ./UAV/11-Cockpit.tex \
+             ./UAV/12-Visualisation.tex \
+             ./UAV/13-Weather.tex \
+             ./UAV/14-Games.tex \
+             ./UAV/15-Networking.tex \
+             ./UAV/16-Finish.tex \
+             "
+
+CHAPTER_HYROPONICS='./hydroponics/intro.tex'
+
+CHAPTER_COMPANION='./companion/intro.tex'
+
+CHAPTER_ROVER='./mars-rover/intro.tex'
+
+
+# now strip individual header and footers
+
+cp $INTRO $OUTPUT
+sed -i 's/\\end{document}//' $OUTPUT
+
+for file in $CHAPTER_UAV; do
+    echo "% ---- $file ----\n" >> $OUTPUT
+    tail -n +8 $file | head -n -1 >> $OUTPUT
+done
+
+for file in $CHAPTER_HYDROPONICS; do
+    echo "% ---- $file ----\n" >> $OUTPUT
+    tail -n +8 $file | head -n -1 >> $OUTPUT
+done
+
+for file in $CHAPTER_COMPANION; do
+    echo "% ---- $file ----\n" >> $OUTPUT
+    tail -n +8 $file | head -n -1 >> $OUTPUT
+done
+
+for file in $CHAPTER_ROVER; do
+    echo "% ---- $file ----\n" >> $OUTPUT
+    tail -n +8 $file | head -n -1 >> $OUTPUT
+done
+
+
+echo "% ---- $END ----\n" >> $OUTPUT
+tail -n +8 $END >> $OUTPUT
+
+# convert to other formats
+
+$LATEX2HTML $HTMLOPTIONS $OUTPUT > $HTMLOUTPUT
