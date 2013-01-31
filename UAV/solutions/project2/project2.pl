@@ -586,7 +586,9 @@ sub can_move_y {
 
 =head1 BUGS AND LIMITATIONS
 
-None known, report any found to the author.
+FIXME: segfaults when the two dots meet each other
+FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
+FIXME: if advanced automatically without the manual button, the dots disappear and aren't drawn until the conclusio
 
 =head1 AUTHOR
 
