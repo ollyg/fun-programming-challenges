@@ -12,7 +12,7 @@ A GTK (GUI) application run directly without options
 
 =head1 DESCRIPTION
 
-Make a pseudo 'UAV' home in on a map reference to take a photo
+Make a pseudo 'UAV' home in on an animal to take a photo
 
 Or if you prefer: Make one dot home in on another
 
