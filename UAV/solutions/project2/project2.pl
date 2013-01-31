@@ -16,6 +16,13 @@ Make a pseudo 'UAV' home in on a map reference to take a photo
 
 Or if you prefer: Make one dot home in on another
 
+see also the original problem set out at
+https://github.com/guyed/fun-programming-challenges/blob/master/UAV/2-Visualisation.tex
+
+FIXME: segfaults when the two dots meet each other
+FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
+FIXME: if advanced automatically without the manual button, the dots disappear and aren't drawn until the conclusio
+
 =cut
 
 use strict;
