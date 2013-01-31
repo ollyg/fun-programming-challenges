@@ -584,6 +584,8 @@ sub can_move_y {
     return 1;
 }
 
+=pod
+
 =head1 BUGS AND LIMITATIONS
 
 FIXME: segfaults when the two dots meet each other
@@ -599,3 +601,5 @@ Guy Edwards <guyjohnedwards@gmail.com>
 I don't believe this is script is big or unique enough to warrant copyright so
 I hereby notify that I disown any copyright interest in this individual
 script. This script can be regarded as public domain.
+
+=cut
