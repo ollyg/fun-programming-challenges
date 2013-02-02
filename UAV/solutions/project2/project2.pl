@@ -23,10 +23,6 @@ https://github.com/guyed/fun-programming-challenges/blob/master/UAV/2-Visualisat
 
 =item *
 
-FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
-
-=item *
-
 FIXME: if advanced automatically without the manual button, the dots disappear and aren't drawn until the conclusio
 
 =back
@@ -299,21 +295,25 @@ sub move_simulation {
         print "MOVE: UAV: $uav_x,$uav_y Target: $target_x,$target_y\n";
     }
 
-    if ( $uav_x ne $target_x or $uav_y ne $target_y ) {
+    if ( ($move_counter % 2) # target is slower than the UAV
+         and ($uav_x ne $target_x or $uav_y ne $target_y) ) {
 
-        my %send = (
-            'uav_x'   => $uav_x,
-            'uav_y'   => $uav_y,
-            'dest_x'  => $target_x,
-            'dest_y'  => $target_y,
-            'x_limit' => $X_LIMIT,
-            'y_limit' => $Y_LIMIT,
-            'counter' => $move_counter,
-        );
+        # do the calculation
+        my $x_diff = abs $uav_x - $target_x;
+        my $y_diff = abs $uav_y - $target_y;
 
-        ( $target_x, $target_y ) = move_evade( \%send );
+        if ( $x_diff > $y_diff and can_move_x() ) {
+            $target_x = move_away( $uav_x, $target_x, 'x' );
+        }
+        elsif ( can_move_y() ) {
+            $target_y = move_away( $uav_y, $target_y, 'y' );
+        }
+        else {
+            $target_x = move_away( $uav_x, $target_x, 'x' );
+        }
+
         $target->request_update;
-        print "MOVE: Animal: $send{dest_x},$send{dest_y} UAV: $uav_x,$uav_y\n";
+        print "MOVE: Target: $target_x,$target_y UAV: $uav_x,$uav_y\n";
     }
 
     # not an elseif as the move above might result in the below (or the
@@ -407,46 +407,52 @@ sub move_closer {
 
 =pod
 
-=head2 move
+=head2 move_away
 
-Return UAV coordinates one step [closer to|further from] the destination
+Return Target coordinates further away from the UAV
 
 If the Absolute Value (abs) of the result of one coordinate minus the other is
-the same as the result by itself, we know the answer was a positive value,
-which means the UAV is at a higher coordinate number and needs to be reduce to
-move closer to the destination.
+the same as the result by itself, we know the answer is positive, which means
+the UAV is at a higher coordinate number and needs to be increased to move
+away.
 
-Conversely if this is not true then the answer was a negative value so the UAV
-is at a lower coordinate number which needs to be raised to move closer to the
-destination.
-
-There is no map boundary logic in this sub to prevent illegal positions.
+Conversely if this is not true then the UAV is at a lower coordinate number
+which needs to be decreased to move away.
 
 =cut
 
-sub move {
-    my $myself    = shift;    # the axis coord of the object we want to change
-    my $nemesis   = shift;    # the axis coord of the object we are reacting to
-    my $direction = shift;
+sub move_away {
+    my $location    = shift; # UAV
+    my $destination = shift; # Target
+    my $axis        = shift; # x or y
 
-    if ( positive_difference( $myself, $nemesis ) ) {
-        if ( $direction eq 'closer' ) {
-            $myself--;
-        }
-        else {
-            $myself++;
-        }
+    my $offset = 0;
+    my $result = $destination - $location;
+
+    if ( $result == abs $result ) {
+
+        # we have a positive offset we need to increase
+        $offset++
     }
     else {
-        if ( $direction eq 'closer' ) {
-            $myself++;
-        }
-        else {
-            $myself--;
-        }
+
+        # we have a negative offset to increase
+        $offset--;
     }
 
-    return $myself;
+    my $newlocation = $destination + $offset;
+    return $destination if $newlocation < 0;
+
+    if ( $axis eq 'x' ) {
+        return $destination if $newlocation > $X_LIMIT;
+        $target->move( $offset, 0 );
+    }
+    elsif ( $axis eq 'y' ) {
+        return $destination if $newlocation > $Y_LIMIT;
+        $target->move( 0, $offset );
+    }
+
+    return $newlocation;
 }
 
 =pod
@@ -478,57 +484,6 @@ sub positive_difference {
 
 =pod 
 
-=head2 move_evade
-
-Evade the pursuer for as long as possible wihtout exiting the map boundaries.
-
-Stays still when cornered.
-
-=cut
-
-sub move_evade {
-    my $data = shift;
-
-    # [bonus requirement] Make the wild animal move away from the UAV one
-    # unit every other turn (so essentially half the speed of the UAV).
-
-    if ( $data->{counter} % 2 ) {
-        
-        return $data->{dest_x}, $data->{dest_y};
-    }
-
-    # print "DEBUG move_evade Calling that special bit\n";
-    if ( !can_move_x($data) && !can_move_y($data) ) {
-        print "MOVE: Animal cornered against the map edge and pursuer\n";
-        return $data->{dest_x}, $data->{dest_y};
-    }
-
-    my $x_diff = abs $data->{uav_x} - $data->{dest_x};
-    my $y_diff = abs $data->{uav_y} - $data->{dest_y};
-
-    if ( $x_diff > $y_diff and can_move_x($data) ) {
-
-        # fastest route away
-        $data->{dest_x} = move( $data->{dest_x}, $data->{uav_x}, 'futher' );
-    }
-    elsif ( can_move_y($data) ) {
-
-        # y is the bigger difference or we can't move in the x axis
-        # either way we move in the y axis
-        $data->{dest_y} = move( $data->{dest_y}, $data->{uav_y}, 'futher' );
-    }
-    else {
-
-        # y is best route but we can't move in the y axis, use the slower x axis
-        $data->{dest_x} = move( $data->{dest_x}, $data->{uav_x}, 'futher' );
-    }
-
-    $target->move( $data->{dest_x}, $data->{dest_y} );
-    return $data->{dest_x}, $data->{dest_y};
-}
-
-=pod 
-
 =head2 can_move_x | can_move_y
 
 Simplifies the logic required in working out which way a evading creature
@@ -537,11 +492,9 @@ should run.
 =cut
 
 sub can_move_x {
-    my $data = shift;
-
     # is the uav to the right and we are against the 0 axis?
-    if ( positive_difference( $data->{uav_x}, $data->{dest_x} )
-        and $data->{dest_x} <= 0 )
+    if ( positive_difference( $uav_x, $target_x )
+        and $target_x <= 0 )
     {
 
         # can't move in this axis
@@ -549,8 +502,8 @@ sub can_move_x {
     }
 
     # is the uav to the left and we are against the limit of the axis?
-    if ( not positive_difference( $data->{uav_x}, $data->{dest_x} )
-        and $data->{dest_x} >= $data->{x_limit} )
+    if ( not positive_difference( $uav_x, $target_x )
+        and $target_x >= $X_LIMIT )
     {
         return 0;
     }
@@ -560,11 +513,9 @@ sub can_move_x {
 }
 
 sub can_move_y {
-    my $data = shift;
-
     # is the uav to north and we are against the 0 axis?
-    if ( positive_difference( $data->{uav_y}, $data->{dest_y} )
-        and $data->{dest_y} <= 0 )
+    if ( positive_difference( $uav_y, $target_y )
+        and $target_y <= 0 )
     {
 
         # can't move in this axis
@@ -572,8 +523,8 @@ sub can_move_y {
     }
 
     # is the uav to the south and we are against the limit of the axis?
-    if ( not positive_difference( $data->{uav_y}, $data->{dest_y} )
-        and $data->{dest_y} >= $data->{y_limit} )
+    if ( not positive_difference( $uav_y, $target_y )
+        and $target_y >= $Y_LIMIT )
     {
         return 0;
     }
@@ -587,10 +538,6 @@ sub can_move_y {
 =head1 BUGS AND LIMITATIONS
 
 =over 4
-
-=item *
-
-FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
 
 =item *
 
