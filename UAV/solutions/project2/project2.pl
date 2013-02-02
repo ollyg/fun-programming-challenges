@@ -38,7 +38,7 @@ FIXME: if advanced automatically without the manual button, the dots disappear a
 =cut
 
 use strict;
-use warnings;
+use warnings FATAL => 'all';
 
 use Gtk2 '-init';
 use Gnome2::Canvas;
@@ -76,7 +76,7 @@ Readonly my $BG_COLOR => $BLACK;
 my ( $uav,      $target, $complete );
 my ( $uav_x,    $uav_y );
 my ( $target_x, $target_y );
-my $move_counter;
+my $move_counter = 0;
 
 my $w_top = Gtk2::Window->new;
 my $vbox = Gtk2::VBox->new( 0, 0 );
