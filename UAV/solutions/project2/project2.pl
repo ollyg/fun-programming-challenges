@@ -204,8 +204,7 @@ sub start_simulation {
     }
     if ( defined $complete ) {
         $complete->destroy;
-        # FIXME: but it doesn't disappear, something wrong with my scoping
-        # maybe?
+        $complete = undef;
     }
 
     ( $uav_x,    $uav_y )    = place_entity( $X_LIMIT, $Y_LIMIT );
@@ -319,7 +318,9 @@ sub move_simulation {
     # not an elseif as the move above might result in the below (or the
     # condition might already exist).
 
-    if ( $uav_x eq $target_x and $uav_y eq $target_y ) {
+    if ( !defined $complete
+         and $uav_x eq $target_x and $uav_y eq $target_y ) {
+
         print "FINISH: UAV at $uav_x,$uav_y target at $target_x,$target_y\n";
 
         $uav->destroy;
