@@ -19,9 +19,21 @@ Or if you prefer: Make one dot home in on another
 see also the original problem set out at
 https://github.com/guyed/fun-programming-challenges/blob/master/UAV/2-Visualisation.tex
 
+=over 4
+
+=item *
+
 FIXME: segfaults when the two dots meet each other
+
+=item *
+
 FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
+
+=item *
+
 FIXME: if advanced automatically without the manual button, the dots disappear and aren't drawn until the conclusio
+
+=back
 
 =cut
 
@@ -77,7 +89,7 @@ create_widgets();
 # base styling
 draw_gridlines();
 
-#draw
+# draw and main loop
 Gtk2->main();
     
 
@@ -330,12 +342,7 @@ sub move_simulation {
 
 =pod
 
-    return;
-}
-
-=pod
-
-=head2 place_entitly
+=head2 place_entity
 
 Create a pseudo random starting position within the x and y limits provided
 
@@ -400,24 +407,6 @@ sub move_closer {
 
 =pod
 
-=head2 place_entitly
-
-Create a pseudo random starting position within the x and y limits provided
-
-=cut
-
-sub place_entity {
-    my $x_limit = shift;
-    my $y_limit = shift;
-
-    my $x_return = int rand $x_limit;
-    my $y_return = int rand $y_limit;
-
-    return $x_return, $y_return;
-}
-
-=pod
-
 =head2 move
 
 Return UAV coordinates one step [closer to|further from] the destination
@@ -459,6 +448,15 @@ sub move {
 
     return $myself;
 }
+
+=pod
+
+=head2 positive_difference
+
+Support routine to tell whether two position integers have a +ve or -ve
+difference.
+
+=cut
 
 sub positive_difference {
     my $first_int  = shift;
@@ -588,9 +586,21 @@ sub can_move_y {
 
 =head1 BUGS AND LIMITATIONS
 
+=over 4
+
+=item *
+
 FIXME: segfaults when the two dots meet each other
+
+=item *
+
 FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
+
+=item *
+
 FIXME: if advanced automatically without the manual button, the dots disappear and aren't drawn until the conclusio
+
+=back
 
 =head1 AUTHOR
 
