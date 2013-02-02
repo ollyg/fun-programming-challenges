@@ -23,10 +23,6 @@ https://github.com/guyed/fun-programming-challenges/blob/master/UAV/2-Visualisat
 
 =item *
 
-FIXME: segfaults when the two dots meet each other
-
-=item *
-
 FIXME: shows two dots, then if the simultation is advanced, the 'prey' dot is no longer drawn
 
 =item *
@@ -300,7 +296,24 @@ sub move_simulation {
         }
 
         $uav->request_update;
-        print "MOVE: UAV: $uav_x,$uav_y Target: $target_x, $target_y\n";
+        print "MOVE: UAV: $uav_x,$uav_y Target: $target_x,$target_y\n";
+    }
+
+    if ( $uav_x ne $target_x or $uav_y ne $target_y ) {
+
+        my %send = (
+            'uav_x'   => $uav_x,
+            'uav_y'   => $uav_y,
+            'dest_x'  => $target_x,
+            'dest_y'  => $target_y,
+            'x_limit' => $X_LIMIT,
+            'y_limit' => $Y_LIMIT,
+            'counter' => $move_counter,
+        );
+
+        ( $target_x, $target_y ) = move_evade( \%send );
+        $target->request_update;
+        print "MOVE: Animal: $send{dest_x},$send{dest_y} UAV: $uav_x,$uav_y\n";
     }
 
     # not an elseif as the move above might result in the below (or the
@@ -324,19 +337,6 @@ sub move_simulation {
         );
     }
     
-    my %send = (
-        'uav_x'   => $uav_x,
-        'uav_y'   => $uav_y,
-        'dest_x'  => $target_x,
-        'dest_y'  => $target_y,
-        'x_limit' => $X_LIMIT,
-        'y_limit' => $Y_LIMIT,
-        'counter' => $move_counter,
-    );
-
-    ( $target_x, $target_y ) = move_evade( \%send );
-    $target->move( $target_x, $target_y );
-
     $move_counter++;
 }
 
@@ -523,7 +523,7 @@ sub move_evade {
         $data->{dest_x} = move( $data->{dest_x}, $data->{uav_x}, 'futher' );
     }
 
-    print "MOVE: Animal moves to $data->{dest_x},$data->{dest_y}\n";
+    $target->move( $data->{dest_x}, $data->{dest_y} );
     return $data->{dest_x}, $data->{dest_y};
 }
 
@@ -587,10 +587,6 @@ sub can_move_y {
 =head1 BUGS AND LIMITATIONS
 
 =over 4
-
-=item *
-
-FIXME: segfaults when the two dots meet each other
 
 =item *
 
